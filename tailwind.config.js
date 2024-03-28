@@ -77,14 +77,16 @@ export default {
       oragne80: '#00401C',
       oragne100: '#002611',
     },
-    space: {
-      contents: '1060px',
-      responsive: '95%',
-    },
     boxShadow: {
       sm: '0px 3px 4px 0px rgba(9, 30, 66, 0.10)',
       md: '0px 8px 12px 0px rgba(9, 30, 66, 0.10)',
-      lg: '0px 18px 28px 0px rgba(9, 30, 66, 0.10)',
+      lg: '',
+    },
+    extend: {
+      spacing: {
+        contents: '1060px',
+        responsive: '95%',
+      },
     },
   },
   plugins: [],
