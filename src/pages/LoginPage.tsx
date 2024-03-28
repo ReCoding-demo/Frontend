@@ -1,5 +1,12 @@
 const LoginPage = () => {
   const KAKAO_REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
+  const KAKAO_REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+
+  const onKaKaoHandler = async () => {
+    const redirectURI = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code&prompt=login`;
+    window.location.href = redirectURI;
+  };
+
   return (
     <div className=" pt-32 flex flex-col gap-10 items-center m-auto">
       <img src="/icons/logo-typo.svg" className="w-[135px]" />
