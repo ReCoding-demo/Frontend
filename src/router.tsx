@@ -1,6 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { HomePage, LoginPage } from './pages';
+import {
+  HomePage,
+  LoginPage,
   DeveloperDetailPage,
+} from './pages';
 import Layout from './components/layout/Layout';
 
 export const router = createBrowserRouter([
@@ -15,6 +18,11 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />,
+        errorElement: <div>Unknown Error</div>,
+      },
+      {
+        path: '/developer/:id',
+        element: <DeveloperDetailPage />,
         errorElement: <div>Unknown Error</div>,
       },
     ],
