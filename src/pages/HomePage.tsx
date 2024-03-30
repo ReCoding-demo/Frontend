@@ -1,4 +1,5 @@
 import DeveloperCard from '../components/home/DeveloperCard';
+import { developerList } from '../data/developer';
 
 const HomePage = () => {
   return (
@@ -9,12 +10,9 @@ const HomePage = () => {
           기다리고 있어요.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-9">
-          <DeveloperCard />
-          <DeveloperCard />
-          <DeveloperCard />
-          <DeveloperCard />
-          <DeveloperCard />
-          <DeveloperCard />
+          {developerList.map((developer) => (
+            <DeveloperCard developer={developer} />
+          ))}
         </div>
       </main>
     </div>
