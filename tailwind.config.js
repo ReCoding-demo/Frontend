@@ -77,6 +77,13 @@ export default {
       oragne80: '#00401C',
       oragne100: '#002611',
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1060px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     space: {
       contents: '1060px',
       responsive: '95%',
