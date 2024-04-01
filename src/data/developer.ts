@@ -1,5 +1,6 @@
 export const developerList = [
   {
+    id: 1,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
@@ -14,6 +15,7 @@ export const developerList = [
     reviewCount: 0,
   },
   {
+    id: 2,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
@@ -28,6 +30,7 @@ export const developerList = [
     reviewCount: 0,
   },
   {
+    id: 3,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
@@ -42,6 +45,7 @@ export const developerList = [
     reviewCount: 0,
   },
   {
+    id: 4,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
@@ -56,6 +60,7 @@ export const developerList = [
     reviewCount: 0,
   },
   {
+    id: 5,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
@@ -70,6 +75,7 @@ export const developerList = [
     reviewCount: 0,
   },
   {
+    id: 6,
     name: '홍민서',
     company: 'Meetpl',
     job: '프론트엔드 개발자',
