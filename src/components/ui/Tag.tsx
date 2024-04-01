@@ -7,11 +7,11 @@ const Tag = ({ color, children }: Tag) => {
   const getColor = (color: string) => {
     switch (color) {
       case 'purple':
-        return 'bg-purple10 text-purple60';
+        return 'bg-purple-10 text-purple-60';
       case 'blue':
-        return 'bg-cyan10 text-cyan80';
+        return 'bg-cyan-10 text-cyan-80';
       case 'green':
-        return 'bg-green10 text-green80';
+        return 'bg-green-10 text-green-80';
     }
   };
 

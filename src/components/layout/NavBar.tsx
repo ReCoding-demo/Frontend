@@ -7,7 +7,7 @@ const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   return (
-    <div className="w-full border-b-[1px] border-b-gray30">
+    <div className="w-full border-b-[1px] border-b-gray-30">
       <div className="w-responsive max-w-contents h-[60px] m-auto flex justify-between items-center ">
         <button
           className="flex items-center gap-3"
@@ -19,11 +19,11 @@ const NavBar = () => {
         {isLogin ? (
           <div className="flex items-center gap-3">
             <ProfileImg size="md" />
-            <p className="text-gray100 label-md-pro">닉네임</p>
+            <p className="text-gray-100 label-md-pro">닉네임</p>
           </div>
         ) : (
           <button
-            className="p-3 text-green70 label-md-pro"
+            className="p-3 text-green-70 label-md-pro"
             onClick={() => navigate('/login')}
           >
             회원가입 / 로그인

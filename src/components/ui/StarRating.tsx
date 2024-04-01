@@ -16,32 +16,32 @@ const StarRating = ({ score, size, gap }: StarRating) => {
 
   // 채워진 별 렌더링
   const filledStars = Array.from({ length: filledStarCount }, (_, idx) => (
-    <FaStar key={idx} size={size} className="text-green60" />
+    <FaStar key={idx} size={size} className="text-green-60" />
   ));
 
   // 비워진 별 렌더링
   const emptyStars = Array.from({ length: emptyStarCount }, (_, idx) => (
-    <FaStar key={idx} size={size} className="text-gray30" />
+    <FaStar key={idx} size={size} className="text-gray-30" />
   ));
 
   // 부분적으로 채워진 별 렌더링
   let partialStar = null;
   if (decimalPart > 0) {
     if (decimalPart <= 0.24) {
-      partialStar = <FaStar size={size} className="text-gray30" />; // 비워진 별
+      partialStar = <FaStar size={size} className="text-gray-30" />; // 비워진 별
     } else if (decimalPart <= 0.74) {
       partialStar = (
         <div style={{ position: 'relative' }}>
-          <FaStar size={size} className="text-gray30" />
+          <FaStar size={size} className="text-gray-30" />
           <FaStarHalf
             size={size}
-            className="text-green60"
+            className="text-green-60"
             style={{ position: 'absolute', top: '0', left: '0' }}
           />
         </div>
       ); // 반채워진 별
     } else {
-      partialStar = <FaStar size={size} className="text-green60" />; // 채워진 별
+      partialStar = <FaStar size={size} className="text-green-60" />; // 채워진 별
     }
   }
 

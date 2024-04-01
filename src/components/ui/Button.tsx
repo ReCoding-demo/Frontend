@@ -23,7 +23,7 @@ const Button = ({ size, color, children, onClick, fullWidth }: Button) => {
       case 'sm':
         return '';
       default:
-        return 'bg-green60 text-white';
+        return 'bg-green-60 text-white';
     }
   };
   return (

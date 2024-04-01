@@ -55,7 +55,7 @@ const DeveloperDetailPage = () => {
   return (
     <>
       {/* 베너 */}
-      <div className="w-full h-[183px] flex justify-center items-center bg-slate-100">
+      <div className="w-full h-[183px] flex justify-center items-center">
         <img
           src="/images/banner-detail.png"
           className="w-full h-full object-cover"
@@ -68,7 +68,7 @@ const DeveloperDetailPage = () => {
         {/* 프로필 */}
         <div className="w-[250px] h-fit flex flex-col items-center gap-5 py-10 sticky top-0">
           <ProfileImg size="xl" />
-          <p className="text-gray100 headline-sm">닉네임</p>
+          <p className="text-gray-100 headline-sm">닉네임</p>
 
           <div className="w-full p-6 grid grid-cols-[1fr_3.3fr] grid-rows-3 gap-y-3 gap-x-4 rounded-xl border-[1px] border-gray20 bg-gray10">
             <p className="label-md text-gray60">회사명</p>
@@ -84,12 +84,14 @@ const DeveloperDetailPage = () => {
               <p className="label-sm text-gray80">리뷰한 프로젝트</p>
               <p className="headline-sm text-green70">15개</p>
             </div>
-            <div className="h-[50px] w-[1px] bg-gray30" />
+            <div className="h-[50px] w-px bg-gray-30" />
             <div className="flex flex-col items-center gap-1">
-              <p className="label-sm text-gray80">후기 평균 평점</p>
+              <p className="label-sm text-gray-80">후기 평균 평점</p>
               <div className="flex gap-2 items-center">
-                <p className="headline-sm text-green70">4.0</p>
-                <p className="label-md text-gray50">/5.0</p>
+                <p className="headline-sm text-green-70">
+                  {ExDetailData.starRating}
+                </p>
+                <p className="label-md text-gray-50">/5.0</p>
               </div>
             </div>
           </div>
@@ -100,7 +102,7 @@ const DeveloperDetailPage = () => {
 
         {/* 컨텐츠 */}
         <div
-          className="absolute flex flex-col gap-10 top-[-40px] right-0 bg-slate-300 w-[68%] max-w-[700px]"
+          className="absolute flex flex-col gap-10 top-[-40px] right-0 w-[68%] max-w-[700px]"
           ref={contentsRef}
         >
           {/* Info Box */}
@@ -113,9 +115,9 @@ const DeveloperDetailPage = () => {
                 </Tag>
               ))}
             </div>
-            <p className="label-md text-gray80 self-center">직무</p>
+            <p className="label-md text-gray-80 self-center">직무</p>
             <Tag color="purple">프론트엔드 개발</Tag>
-            <p className="label-md text-gray80 self-center">Github 링크</p>
+            <p className="label-md text-gray-80 self-center">Github 링크</p>
             <a
               className="label-md underline text-gray60 self-center"
               href="https://github.com/seungzzok"
