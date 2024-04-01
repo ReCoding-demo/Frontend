@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import {
-  DeveloperDetailPage,
   HomePage,
-  KakaoLoginPage,
   LoginPage,
+  DeveloperDetailPage,
+  KakaoLoginPage,
 } from './pages';
 import Layout from './components/layout/Layout';
 
@@ -24,6 +24,11 @@ export const router = createBrowserRouter([
       {
         path: '/kakao',
         element: <KakaoLoginPage />,
+        errorElement: <div>Unknown Error</div>,
+      },
+      {
+        path: '/developer/:id',
+        element: <DeveloperDetailPage />,
         errorElement: <div>Unknown Error</div>,
       },
     ],

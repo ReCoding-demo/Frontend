@@ -18,7 +18,7 @@ const ProfileImg = ({ size, imgUrl }: ProfileImg) => {
   };
   return (
     <div
-      className={`${getSize(size)} flex justify-center items-center rounded-full overflow-hidden bg-gray20`}
+      className={`${getSize(size)} flex justify-center items-center rounded-full overflow-hidden bg-gray-20`}
     >
       <img
         src={imgUrl || '/icons/profile.svg'}
