@@ -3,6 +3,7 @@ import {
   HomePage,
   LoginPage,
   DeveloperDetailPage,
+  KakaoLoginPage,
 } from './pages';
 import Layout from './components/layout/Layout';
 
@@ -18,6 +19,11 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />,
+        errorElement: <div>Unknown Error</div>,
+      },
+      {
+        path: '/kakao',
+        element: <KakaoLoginPage />,
         errorElement: <div>Unknown Error</div>,
       },
       {
