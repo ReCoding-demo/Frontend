@@ -11,9 +11,9 @@ const KakaoLoginPage = () => {
   const [searchParams] = useSearchParams();
   const code = searchParams.get('code');
 
-  const kakaoLoginHandler = () => {
+  const kakaoLoginHandler = async () => {
     const requestUrl = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&code=${code}&client_secret=${KAKAO_CLIENT_SECRET}`;
-    axios
+    await axios
       .post(requestUrl, {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
       })
