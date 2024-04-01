@@ -10,7 +10,7 @@ const LoginPage = () => {
   return (
     <div className=" pt-32 flex flex-col gap-10 items-center m-auto">
       <img src="/icons/logo-typo.svg" className="w-[135px]" />
-      <p className=" text-center text-gray100 headline-md">
+      <p className=" text-center text-gray-100 headline-md">
         네카라쿠배 개발자에게
         <br />
         지금 바로 코드리뷰를 받아보세요
