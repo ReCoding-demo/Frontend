@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Dropdown from './Dropdown';
+import FilterMenu from './FilterMenu';
 import { AllSelectedList } from '../../pages/HomePage';
 
 interface Props {
@@ -47,22 +47,22 @@ const Filter = ({
   };
 
   return (
-    <Dropdown
+    <FilterMenu
       label={label}
       labelList={labelList}
       selectedList={allSelectedList[keyName]}
       onConfirm={handleDropdownConfirm}
       onCancel={handleDropdownCancel}
     >
-      <Dropdown.chipList.description>
+      <FilterMenu.chipList.description>
         {description} {maxSelect && <> (최대 {maxSelect}개 선택 가능)</>}
-      </Dropdown.chipList.description>
-      <Dropdown.chipList
+      </FilterMenu.chipList.description>
+      <FilterMenu.chipList
         labelList={labelList}
         selectedList={selectedList}
         onChipClick={handleChipClick}
       />
-    </Dropdown>
+    </FilterMenu>
   );
 };
 

@@ -1,20 +1,20 @@
 import clsx from 'clsx';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
-interface Props {
+interface ChipProps {
   children: React.ReactNode;
   isSelected?: boolean;
   onClick?: () => void;
 }
 
-const Chip = ({ children, isSelected, onClick }: Props) => {
+const Chip = ({ children, isSelected, onClick }: ChipProps) => {
   return (
     <li
       className={clsx(
         'group flex cursor-pointer items-center gap-1 rounded-full border py-1.5',
         {
           'border-green60 bg-white pl-3 pr-4': isSelected,
-          'border-gray30 bg-gray20 px-4 hover:border-green60 hover:bg-white':
+          'border-gray30 bg-gray20 hover:border-green60 px-4 hover:bg-white':
             !isSelected,
         },
       )}
