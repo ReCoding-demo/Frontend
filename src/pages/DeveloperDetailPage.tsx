@@ -71,13 +71,15 @@ const DeveloperDetailPage = () => {
             <p className="label-md text-gray-80 self-center">기술 스택</p>
             <div className="flex items-center gap-[10px]">
               {ExDetailData.stacks.map((item, idx) => (
-                <Tag key={idx} color="blue">
+                <Tag as="span" key={idx} color="blue">
                   {item}
                 </Tag>
               ))}
             </div>
             <p className="label-md text-gray-80 self-center">직무</p>
-            <Tag color="purple">프론트엔드 개발</Tag>
+            <Tag as="span" color="purple">
+              프론트엔드 개발
+            </Tag>
             <p className="label-md text-gray-80 self-center">Github 링크</p>
             <a
               className="label-md underline text-gray-60 self-center"
@@ -119,7 +121,7 @@ const DeveloperDetailPage = () => {
               </div>
               <div className="flex items-center gap-2">
                 {ExDetailData.hashtags.map((item, idx) => (
-                  <Tag key={idx} color="green">
+                  <Tag as="span" key={idx} color="green">
                     {item}
                   </Tag>
                 ))}
