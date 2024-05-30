@@ -48,12 +48,12 @@ const FilterMenu = ({
   return (
     <div className="relative" ref={dropdownRef}>
       <div
-        className="border-gray30 flex cursor-pointer items-center rounded-md border py-3 pl-4 pr-2.5"
+        className="flex cursor-pointer items-center rounded-md border border-gray-30 py-3 pl-4 pr-2.5"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-gray80 font-medium">{label}</span>
+        <span className="font-medium text-gray-80">{label}</span>
         {selectedList && selectedList.length >= 1 && labelList && (
-          <span className="text-green70 ml-2 font-semibold">
+          <span className="ml-2 font-semibold text-green-70">
             {labelList[selectedList[0]]}{' '}
             {selectedList.length >= 2 && <>외 {selectedList.length - 1}개</>}
           </span>
@@ -70,17 +70,17 @@ const FilterMenu = ({
       </div>
       <div
         className={clsx(
-          'border-gray40 absolute -bottom-[10px] w-[469px] translate-y-full rounded-md border bg-white shadow-md duration-200',
+          'absolute -bottom-[10px] w-[469px] translate-y-full rounded-md border border-gray-40 bg-white shadow-md duration-200',
           {
             'pointer-events-auto opacity-100': isOpen,
             'pointer-events-none opacity-0': !isOpen,
           },
         )}
       >
-        <div className="border-gray30 border-b p-5 text-sm">{children}</div>
+        <div className="border-b border-gray-30 p-5 text-sm">{children}</div>
         <div className="flex justify-end gap-5 px-5 py-4">
           <button
-            className="text-gray60 text-sm font-semibold"
+            className="text-sm font-semibold text-gray-60"
             onClick={() => {
               setIsOpen(false);
               setTimeout(() => {
@@ -91,7 +91,7 @@ const FilterMenu = ({
             취소
           </button>
           <button
-            className="text-green70 text-sm font-semibold"
+            className="text-sm font-semibold text-green-70"
             onClick={() => {
               setIsOpen(false);
               onConfirm && onConfirm();

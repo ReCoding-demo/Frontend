@@ -13,8 +13,8 @@ const Chip = ({ children, isSelected, onClick }: ChipProps) => {
       className={clsx(
         'group flex cursor-pointer items-center gap-1 rounded-full border py-1.5',
         {
-          'border-green60 bg-white pl-3 pr-4': isSelected,
-          'border-gray30 bg-gray20 hover:border-green60 px-4 hover:bg-white':
+          'border-green-60 bg-white pl-3 pr-4': isSelected,
+          'border-gray-30 bg-gray-20 px-4 hover:border-green-60 hover:bg-white':
             !isSelected,
         },
       )}
@@ -23,14 +23,14 @@ const Chip = ({ children, isSelected, onClick }: ChipProps) => {
       }}
     >
       {isSelected && (
-        <i className="text-green70">
+        <i className="text-green-70">
           <Icon icon="icon-park-outline:check" />
         </i>
       )}
       <span
         className={clsx('text-sm font-medium', {
-          'text-green70': isSelected,
-          'text-gray80 group-hover:text-green70': !isSelected,
+          'text-green-70': isSelected,
+          'text-gray-80 group-hover:text-green-70': !isSelected,
         })}
       >
         {children}
