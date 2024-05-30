@@ -7,8 +7,8 @@ const NavBar = () => {
   const [isLogin] = useState(false);
 
   return (
-    <div className="w-full border-b-[1px] border-b-gray-30">
-      <div className="w-responsive max-w-contents m-auto flex h-[60px] items-center justify-between ">
+    <div className="w-full border-b-[1px] border-b-gray-30 px-6">
+      <div className="w-responsive max-w-contents h-[60px] m-auto flex justify-between items-center">
         <button
           className="flex items-center gap-3"
           onClick={() => navigate('/')}

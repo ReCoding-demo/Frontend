@@ -28,7 +28,7 @@ const ReviewCard = ({ data }: ReviewCard) => {
         </div>
         <div className="flex items-center gap-2">
           {data.hashtags.map((item, idx) => (
-            <Tag key={idx} color="green">
+            <Tag as="span" key={idx} color="green">
               {item}
             </Tag>
           ))}
@@ -47,7 +47,7 @@ const ReviewCard = ({ data }: ReviewCard) => {
         <p className="label-md text-gray-60 self-center">도움 받은 스택</p>
         <div className="flex items-center gap-[6px]">
           {data.stacks.map((item, idx) => (
-            <Tag key={idx} color="blue">
+            <Tag as="span" key={idx} color="blue">
               {item}
             </Tag>
           ))}
