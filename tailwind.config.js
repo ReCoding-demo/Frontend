@@ -77,16 +77,21 @@ export default {
       'success-80': '#00401C',
       'success-100': '#002611',
     },
-    extend: {
-      spacing: {
-        contents: '1060px',
-        responsive: '95%',
-      },
-      boxShadow: {
-        sm: '0px 3px 4px 0px rgba(9, 30, 66, 0.10)',
-        md: '0px 8px 12px 0px rgba(9, 30, 66, 0.10)',
-        lg: '0px 18px 28px 0px rgba(9, 30, 66, 0.10)',
-      },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1060px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    space: {
+      contents: '1060px',
+      responsive: '95%',
+    },
+    boxShadow: {
+      sm: '0px 3px 4px 0px rgba(9, 30, 66, 0.10)',
+      md: '0px 8px 12px 0px rgba(9, 30, 66, 0.10)',
+      lg: '0px 18px 28px 0px rgba(9, 30, 66, 0.10)',
     },
   },
   plugins: [],
