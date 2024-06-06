@@ -93,6 +93,23 @@ export default {
       md: '0px 8px 12px 0px rgba(9, 30, 66, 0.10)',
       lg: '0px 18px 28px 0px rgba(9, 30, 66, 0.10)',
     },
+
+    extend: {
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+        'fade-out': 'fadeOut 0.3s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
+    },
   },
   plugins: [],
 };
