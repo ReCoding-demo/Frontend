@@ -56,7 +56,14 @@ const DeveloperDetailPage = () => {
               </div>
             </div>
           </div>
-          <Button size="lg" color="" fullWidth onClick={() => {}}>
+          <Button
+            size="lg"
+            color="green"
+            fullWidth
+            onClick={() => {
+              setIsOpenModal(true);
+            }}
+          >
             코드리뷰 신청하기
           </Button>
         </div>
