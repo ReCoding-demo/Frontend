@@ -1,13 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ReviewCard from '../components/review/ReviewCard';
 import Button from '../components/ui/Button';
 import ProfileImg from '../components/ui/ProfileImg';
 import StarRating from '../components/ui/StarRating';
 import Tag from '../components/ui/Tag';
 import { ExDetailData } from '../data/developerDetail';
+import Modal from '../components/ui/Modal';
 
 const DeveloperDetailPage = () => {
   const contentsRef = useRef<HTMLDivElement>(null);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <>
@@ -56,7 +58,14 @@ const DeveloperDetailPage = () => {
               </div>
             </div>
           </div>
-          <Button size="lg" color="" fullWidth onClick={() => {}}>
+          <Button
+            size="lg"
+            color="green"
+            fullWidth
+            onClick={() => {
+              setIsOpenModal(true);
+            }}
+          >
             코드리뷰 신청하기
           </Button>
         </div>
@@ -136,6 +145,17 @@ const DeveloperDetailPage = () => {
           </div>
         </div>
       </div>
+
+      {/* 모달 */}
+      {isOpenModal && (
+        <Modal
+          title="코드 리뷰를 신청하시겠어요?"
+          setIsOpenModal={setIsOpenModal}
+        >
+          RE;CODING은 아직 재정비 중이에요. <br /> 구글폼을 통해 먼저 신청하면,
+          먼저 코드리뷰를 받을 수 있어요.
+        </Modal>
+      )}
     </>
   );
 };
