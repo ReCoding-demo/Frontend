@@ -18,7 +18,10 @@ interface Props {
 const DeveloperCard = ({ developer }: Props) => {
   return (
     <article>
-      <Link to="/developer/1" className="border p-5 border-gray-30 rounded-xl">
+      <Link
+        to="/developer/1"
+        className="block rounded-xl border border-gray-30 p-5"
+      >
         <div className="flex items-center gap-3">
           <ProfileImg size="lg" />
           <div>
@@ -28,11 +31,11 @@ const DeveloperCard = ({ developer }: Props) => {
                 <span className="label-sm text-green-70">
                   {developer.company}
                 </span>
-                <div className="h-3 w-px bg-gray-30 mx-1.5" />
+                <div className="mx-1.5 h-3 w-px bg-gray-30" />
               </li>
               <li className="flex items-center">
                 <span className="label-sm text-gray-70">{developer.job}</span>
-                <div className="h-3 w-px bg-gray-30 mx-1.5" />
+                <div className="mx-1.5 h-3 w-px bg-gray-30" />
               </li>
               <li className="flex items-center">
                 <span className="label-sm text-gray-70">
@@ -42,7 +45,7 @@ const DeveloperCard = ({ developer }: Props) => {
             </ul>
           </div>
         </div>
-        <p className="line-clamp-2 mt-6 body-md text-gray-60">
+        <p className="body-md mt-6 line-clamp-2 text-gray-60">
           {developer.introduction}
         </p>
         <ul className="mt-5 flex gap-1.5">
@@ -54,19 +57,19 @@ const DeveloperCard = ({ developer }: Props) => {
         </ul>
         <ul className="mt-5 flex">
           <li className="flex items-center">
-            <span className="text-gray-70 label-sm">
+            <span className="label-sm text-gray-70">
               코드리뷰{' '}
-              <b className="text-green-70 label-sm">
+              <b className="label-sm text-green-70">
                 {developer.codeReviewCount}
               </b>
               회
             </span>
-            <div className="h-3 w-px bg-gray-30 mx-1.5" />
+            <div className="mx-1.5 h-3 w-px bg-gray-30" />
           </li>
           <li className="flex items-center">
-            <span className="text-gray-70 label-sm">
+            <span className="label-sm text-gray-70">
               후기{' '}
-              <b className="text-green-70 label-sm">{developer.reviewCount}</b>
+              <b className="label-sm text-green-70">{developer.reviewCount}</b>
               개
             </span>
           </li>
