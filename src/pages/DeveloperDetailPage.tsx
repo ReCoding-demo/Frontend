@@ -5,31 +5,33 @@ import ProfileImg from '../components/ui/ProfileImg';
 import StarRating from '../components/ui/StarRating';
 import Tag from '../components/ui/Tag';
 import { ExDetailData } from '../data/developerDetail';
-import Modal from '../components/ui/Modal';
+import ApplyCodeReviewModal from '../components/developer-detail/apply/ApplyCodeReviewModal';
+import AICodeReviewModal from '../components/developer-detail/ai/AICodeReviewModal';
 
 const DeveloperDetailPage = () => {
   const contentsRef = useRef<HTMLDivElement>(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenAIModal, setIsOpenAIModal] = useState(false);
 
   return (
     <>
       {/* 베너 */}
-      <div className="w-full h-[183px] flex justify-center items-center">
+      <div className="flex h-[183px] w-full items-center justify-center">
         <img
           src="/images/banner-detail.png"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
       <div
-        className="m-auto flex h-[2000px] min-w-[850px] max-w-[1060px] w-[95%] relative"
+        className="relative m-auto flex h-[2000px] w-[95%] min-w-[850px] max-w-[1060px]"
         style={{ height: `${contentsRef.current?.clientHeight}px` }}
       >
         {/* 프로필 */}
-        <div className="w-[250px] h-fit flex flex-col items-center gap-5 py-10 sticky top-0">
+        <div className="sticky top-0 flex h-fit w-[250px] flex-col items-center gap-5 py-10">
           <ProfileImg size="xl" />
-          <p className="text-gray-100 headline-sm">닉네임</p>
+          <p className="headline-sm text-gray-100">닉네임</p>
 
-          <div className="w-full p-6 grid grid-cols-[1fr_3.3fr] grid-rows-3 gap-y-3 gap-x-4 rounded-xl border-[1px] border-gray-20 bg-gray-10">
+          <div className="grid w-full grid-cols-[1fr_3.3fr] grid-rows-3 gap-x-4 gap-y-3 rounded-xl border-[1px] border-gray-20 bg-gray-10 p-6">
             <p className="label-md text-gray-60">회사명</p>
             <p className="label-md text-gray-80">{ExDetailData.company}</p>
             <p className="label-md text-gray-60">직무명</p>
@@ -40,7 +42,7 @@ const DeveloperDetailPage = () => {
             </p>
           </div>
 
-          <div className="flex w-full justify-center items-center gap-7 p-5 rounded-xl border-[1px] border-gray-20 bg-gray-10">
+          <div className="flex w-full items-center justify-center gap-7 rounded-xl border-[1px] border-gray-20 bg-gray-10 p-5">
             <div className="flex flex-col items-center gap-1">
               <p className="label-sm text-gray-80">리뷰한 프로젝트</p>
               <p className="headline-sm text-green-70">
@@ -50,7 +52,7 @@ const DeveloperDetailPage = () => {
             <div className="h-[50px] w-px bg-gray-30" />
             <div className="flex flex-col items-center gap-1">
               <p className="label-sm text-gray-80">후기 평균 평점</p>
-              <div className="flex gap-2 items-center">
+              <div className="flex items-center gap-2">
                 <p className="headline-sm text-green-70">
                   {ExDetailData.starRating}
                 </p>
@@ -58,26 +60,43 @@ const DeveloperDetailPage = () => {
               </div>
             </div>
           </div>
-          <Button
-            size="lg"
-            color="green"
-            fullWidth
-            onClick={() => {
-              setIsOpenModal(true);
-            }}
-          >
-            코드리뷰 신청하기
-          </Button>
+          <div className="flex w-full flex-col gap-2">
+            <Button
+              size="lg"
+              color="green"
+              fullWidth
+              onClick={() => {
+                setIsOpenModal(true);
+              }}
+            >
+              코드리뷰 신청하기
+            </Button>
+            <Button
+              size="lg"
+              color="white"
+              fullWidth
+              onClick={() => {
+                setIsOpenAIModal(true);
+              }}
+            >
+              <span className="flex items-center justify-center gap-2">
+                <span>AI에게 코드리뷰 받기</span>
+                <Tag as="span" color="green" textSize="xs">
+                  Beta
+                </Tag>
+              </span>
+            </Button>
+          </div>
         </div>
 
         {/* 컨텐츠 */}
         <div
-          className="absolute flex flex-col gap-10 top-[-40px] right-0 w-[68%] max-w-[700px]"
+          className="absolute right-0 top-[-40px] flex w-[68%] max-w-[700px] flex-col gap-10"
           ref={contentsRef}
         >
           {/* Info Box */}
-          <div className="w-full p-7 grid grid-cols-[1fr_5fr] grid-rows-3 gap-y-4 gap-x-3 rounded-xl border-[1px] border-gray-30 bg-white">
-            <p className="label-md text-gray-80 self-center">기술 스택</p>
+          <div className="grid w-full grid-cols-[1fr_5fr] grid-rows-3 gap-x-3 gap-y-4 rounded-xl border-[1px] border-gray-30 bg-white p-7">
+            <p className="label-md self-center text-gray-80">기술 스택</p>
             <div className="flex items-center gap-[10px]">
               {ExDetailData.stacks.map((item, idx) => (
                 <Tag as="span" key={idx} color="blue">
@@ -85,13 +104,13 @@ const DeveloperDetailPage = () => {
                 </Tag>
               ))}
             </div>
-            <p className="label-md text-gray-80 self-center">직무</p>
+            <p className="label-md self-center text-gray-80">직무</p>
             <Tag as="span" color="purple">
               프론트엔드 개발
             </Tag>
-            <p className="label-md text-gray-80 self-center">Github 링크</p>
+            <p className="label-md self-center text-gray-80">Github 링크</p>
             <a
-              className="label-md underline text-gray-60 self-center"
+              className="label-md self-center text-gray-60 underline"
               href={ExDetailData.githubLink}
               target="_blank"
             >
@@ -111,7 +130,7 @@ const DeveloperDetailPage = () => {
             <p className="title-lg text-gray-100">커리어 정보</p>
             <p className="body-lg text-gray-70">{ExDetailData.carrerInfo}</p>
           </div>
-          <div className="w-full h-px bg-gray-30" />
+          <div className="h-px w-full bg-gray-30" />
           {/* 리뷰 */}
           <div className="flex flex-col gap-7">
             <p className="headline-sm text-gray-100">
@@ -121,7 +140,7 @@ const DeveloperDetailPage = () => {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <StarRating score={4.0} size={20} gap={2} />
-                <p className="label-md-pro text-gray-60 leading-none">
+                <p className="label-md-pro leading-none text-gray-60">
                   후기 평균 평점{' '}
                   <span className="text-green-70">
                     {ExDetailData.starRating}
@@ -148,14 +167,17 @@ const DeveloperDetailPage = () => {
 
       {/* 모달 */}
       {isOpenModal && (
-        <Modal
+        <ApplyCodeReviewModal
           title="코드 리뷰를 신청하시겠어요?"
           setIsOpenModal={setIsOpenModal}
         >
           RE;CODING은 아직 재정비 중이에요. <br /> 구글폼을 통해 먼저 신청하면,
           먼저 코드리뷰를 받을 수 있어요.
-        </Modal>
+        </ApplyCodeReviewModal>
       )}
+
+      {/* AI 코드리뷰 모달 */}
+      {isOpenAIModal && <AICodeReviewModal setIsOpenModal={setIsOpenAIModal} />}
     </>
   );
 };
