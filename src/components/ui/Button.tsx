@@ -1,8 +1,8 @@
 interface Button {
   size: 'sm' | 'md' | 'lg'; // 텍스트 사이즈
-  color: 'green' | 'white'; // 버튼 색상
+  color: 'green' | 'white' | 'gray'; // 버튼 색상
   children: React.ReactNode; // 버튼 텍스트
-  onClick: () => void; // 클릭 이벤트
+  onClick?: () => void; // 클릭 이벤트
   fullWidth?: boolean; // width: 100% 여부
 }
 
@@ -24,6 +24,8 @@ const Button = ({ size, color, children, onClick, fullWidth }: Button) => {
         return 'bg-green-60 text-white';
       case 'white':
         return 'bg-white text-green-60 border border-solid border-gray-30';
+      case 'gray':
+        return 'bg-gray-40 text-white';
     }
   };
   return (

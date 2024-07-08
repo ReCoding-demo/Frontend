@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseURL = 'https://api.recoder.co.kr'; // 예시
+const baseURL = import.meta.env.VITE_SERVER_API_URL;
 
 export const Axios = axios.create({
   baseURL: baseURL,
-  timeout: 5000,
+  timeout: 10000,
   withCredentials: true,
 });
