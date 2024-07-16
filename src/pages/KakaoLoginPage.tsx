@@ -1,25 +1,46 @@
 import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Axios } from '../api/axios';
+import { useSetRecoilState } from 'recoil';
+import { LoginState, TokenState } from '../states/LoginState';
 
 const KakaoLoginPage = () => {
-  const KAKAO_REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
-  const KAKAO_REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
-  const KAKAO_CLIENT_SECRET = import.meta.env.VITE_KAKAO_CLIENT_SECRET;
-
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const setLoginState = useSetRecoilState(LoginState);
+  const setToeknState = useSetRecoilState(TokenState);
   const code = searchParams.get('code');
 
   const kakaoLoginHandler = async () => {
-    const requestUrl = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&code=${code}&client_secret=${KAKAO_CLIENT_SECRET}`;
-    await axios
-      .post(requestUrl, {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-      })
+    await Axios.get('/api/auth', {
+      params: {
+        code,
+      },
+    })
       .then((res) => {
-        console.log(res);
-        //   navigate('/');
+        // 1. 유저정보 추출
+        const data = res.data.data;
+        const { memberId, email, name, picture, accessToken, refreshToken } =
+          data;
+
+        // 2. 전역 상태관리
+        setLoginState({
+          memberId,
+          email,
+          name,
+          picture,
+        });
+        setToeknState({
+          accessToken,
+          refreshToken,
+        });
+
+        // 3. Header Authorization default값으로 accessToken 설정
+        Axios.defaults.headers.common['Authorization'] =
+          `Bearer ${accessToken}`;
+
+        // 4. 홈 화면으로 이동
+        navigate('/');
       })
       .catch((err) => console.error(err));
   };
